@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Script_programacao/Chunk_sensor.gd" type="Script" id=1]
+[ext_resource path="res://Cenas_do_Projeto/Door.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 256, 7 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 7, 256 )
+
+[node name="Chunk_sensor" type="Node2D"]
+script = ExtResource( 1 )
+top = true
+bottom = true
+left = true
+right = true
+
+[node name="up" type="Area2D" parent="."]
+position = Vector2( 0, -171 )
+
+[node name="Shape" type="CollisionShape2D" parent="up"]
+position = Vector2( 256, 179 )
+shape = SubResource( 1 )
+
+[node name="left" type="Area2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="left"]
+position = Vector2( 7, 256 )
+shape = SubResource( 2 )
+
+[node name="right" type="Area2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="right"]
+position = Vector2( 505, 256 )
+shape = SubResource( 2 )
+
+[node name="Door2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 275, 504 )
+to_door = 2
+
+[connection signal="body_entered" from="up" to="." method="_on_up_body_entered"]
+[connection signal="body_entered" from="left" to="." method="_on_left_body_entered"]
+[connection signal="body_entered" from="right" to="." method="_on_right_body_entered"]

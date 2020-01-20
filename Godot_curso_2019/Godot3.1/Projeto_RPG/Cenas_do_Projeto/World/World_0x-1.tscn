@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Script_programacao/Chunk0x0.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Mapas/Casa(0x-1).png" type="Texture" id=2]
+[ext_resource path="res://Cenas_do_Projeto/Chunk_sensor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Cenas_do_Projeto/Door.tscn" type="PackedScene" id=4]
+
+[node name="YSort_Chunk0x-1" type="YSort"]
+script = ExtResource( 1 )
+index = Vector2( 0, -1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 256, 208 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 0, -1 )
+polygon = PoolVector2Array( -132, -34, -130, 98, -35, 97, -35, 112, -142, 111, -141, -111, 140, -108, 139, 108, 32, 111, 34, 98, 132, 98, 131, -35 )
+
+[node name="Casa(0x-1)" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Chunk_sensor" parent="." instance=ExtResource( 3 )]
+
+[node name="Door1" parent="." instance=ExtResource( 4 )]
+position = Vector2( 256, 308 )
+to_index = Vector2( 0, 0 )
+to_door = 1
+out_dir = Vector2( 0, -1 )
+

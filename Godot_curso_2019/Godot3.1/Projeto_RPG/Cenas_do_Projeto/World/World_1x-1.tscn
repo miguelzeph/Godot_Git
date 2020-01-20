@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Script_programacao/Chunk0x0.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Mapas/Mapa(1x-1).png" type="Texture" id=2]
+[ext_resource path="res://Cenas_do_Projeto/Chunk_sensor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Cenas_do_Projeto/Door.tscn" type="PackedScene" id=4]
+
+[node name="YSort_Chunk1x-1" type="YSort"]
+script = ExtResource( 1 )
+index = Vector2( 1, -1 )
+
+[node name="Mapa(1x-1)" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Chunk_sensor" parent="." instance=ExtResource( 3 )]
+
+[node name="Door2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 256, 507 )
+scale = Vector2( 8.24, 2.56 )
+to_index = Vector2( 1, 0 )
+out_dir = Vector2( 0, -1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 114, 393, 114, 412, 143, 411, 141, 389 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 17, -129 )
+polygon = PoolVector2Array( 114, 393, 114, 412, 143, 411, 141, 389 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 337, -99 )
+polygon = PoolVector2Array( 114, 393, 114, 412, 143, 411, 141, 389 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 335, -11 )
+polygon = PoolVector2Array( 114, 393, 114, 412, 143, 411, 141, 389 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -60, -259 )
+polygon = PoolVector2Array( 114, 393, 114, 412, 143, 411, 141, 389 )
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 82, -352 )
+polygon = PoolVector2Array( 114, 393, 114, 412, 143, 411, 141, 389 )
+
